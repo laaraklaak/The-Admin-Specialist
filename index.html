@@ -1,153 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Admin Specialist | Get Your Finances in Order</title>
+    <title>Laura Clarke - Financial Clarity for Your Goals</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
+        /* Apply the Inter font family */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FDFBF8;
-            color: #4A4A4A;
         }
-        .btn-primary {
-            background-color: #A38A70;
-            color: #FFFFFF;
-            transition: background-color 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #8a735c;
-        }
-        .section-spacing {
-            margin-top: 6rem;
-        }
+        /* Custom teal color classes for consistency */
+        .bg-teal-dark { background-color: #004D40; }
+        .bg-teal-medium { background-color: #00796B; }
+        .bg-teal-light { background-color: #B2DFDB; }
+        .text-teal-dark { color: #004D40; }
+        .text-teal-medium { color: #00796B; }
+        .border-teal-dark { border-color: #004D40; }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-gray-50 text-gray-800">
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-
-        <!-- Header Section -->
-        <header class="text-center mb-20">
-            <h1 class="text-3xl md:text-4xl font-bold text-[#A38A70] tracking-tight">Your Money, Organized. Your Future, Funded.</h1>
-            <p class="mt-4 max-w-2xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed">Whether you're trying to get a car loan or grow your business, it all starts with having your finances in order. I help hardworking Jamaicans organize their money so they can unlock their next big opportunity.</p>
-            <a href="#contact" class="mt-8 inline-block btn-primary font-bold py-3 px-8 rounded-full text-lg">Book Your Free Consultation</a>
-        </header>
-        
-        <!-- The Problem Section -->
-        <section id="problem" class="mb-20">
-            <div class="text-center">
-                <h2 class="text-2xl md:text-3xl font-semibold text-[#4A4A4A]">Does This Sound Familiar?</h2>
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-teal-dark">Laura Clarke</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#services" class="text-gray-600 hover:text-teal-dark transition duration-300">Solutions</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-teal-dark transition duration-300">My Work</a>
+                <a href="#about" class="text-gray-600 hover:text-teal-dark transition duration-300">About</a>
+                <a href="#contact" class="bg-teal-medium text-white px-4 py-2 rounded-md hover:bg-teal-dark transition duration-300">Contact</a>
             </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-                    <h3 class="font-bold text-lg text-[#A38A70]">Scattered Paperwork</h3>
-                    <p class="mt-2 text-gray-600">Your important records—receipts, bills, invoices—are a mix of paper in a drawer and notes in your phone.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-                    <h3 class="font-bold text-lg text-[#A38A70]">Financial Guesswork</h3>
-                    <p class="mt-2 text-gray-600">At the end of the month, you're not sure where your money went, making it hard to save or know your true profit.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
-                    <h3 class="font-bold text-lg text-[#A38A70]">Blocked from Opportunities</h3>
-                    <p class="mt-2 text-gray-600">You get turned down for loans because you can't provide the clear, professional financial records the bank needs to see.</p>
-                </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#services" class="block py-2 text-gray-600 hover:text-teal-dark">Solutions</a>
+            <a href="#portfolio" class="block py-2 text-gray-600 hover:text-teal-dark">My Work</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-teal-dark">About</a>
+            <a href="#contact" class="block mt-2 bg-teal-medium text-white text-center px-4 py-2 rounded-md hover:bg-teal-dark">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="bg-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-teal-dark leading-tight">Secure That Loan. Grow Your Savings. Get Organized.</h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">I build easy to use solutions with familiar tools, giving you the financial clarity needed to achieve your biggest goals.</p>
+                <a href="#services" class="mt-8 inline-block bg-teal-medium text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-teal-dark transition duration-300">Discover the Solutions</a>
             </div>
         </section>
 
-        <!-- The Solution Section -->
-        <section id="solution" class="section-spacing bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-semibold text-[#4A4A4A]">The Solution: Your Digital Fresh Start</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed">I give you a clean start with a simple system to track your money and manage your files—all using free tools on your smartphone.</p>
-            </div>
-
-            <!-- For Your Personal Finances -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
-                <div>
-                    <h3 class="font-bold text-xl text-[#A38A70]">For Your Personal Finances</h3>
-                    <p class="mt-2 text-gray-600 leading-relaxed">We build your **Personal Finance Dashboard**. Using a simple form on your phone, you can log every transaction in 15 seconds. This automatically creates a clear summary of your spending, helping you save and get ready for a personal loan or mortgage.</p>
-                </div>
-                <div class="bg-[#EFEBE7] p-6 rounded-lg border border-gray-200">
-                    <h4 class="font-bold text-center text-lg text-[#4A4A4A]">Monthly Snapshot</h4>
-                    <div class="mt-4 space-y-2 text-sm">
-                        <div class="flex justify-between"><span>Total Income:</span> <span>J$250,000</span></div>
-                        <div class="flex justify-between"><span>Total Expenses:</span> <span>J$185,000</span></div>
-                        <div class="flex justify-between font-bold text-base"><span>Remaining for Savings:</span> <span class="text-green-700">J$65,000</span></div>
+        <!-- Services Section -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-teal-dark mb-12">Solutions for Your Ambitions</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Service 1: Custom Dashboards -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-red-600 font-semibold">The Goal:</p>
+                        <h3 class="text-2xl font-bold text-teal-medium mb-4">Get loan-ready or boost your savings portfolio.</h3>
+                        <p class="text-gray-600 mb-4">Whether you're a **small business** needing clean financials for a loan application or a **young professional** wanting to find extra money to invest, you need a clear picture of your finances.</p>
+                        <p class="text-green-700 font-semibold">The Solution:</p>
+                        <p class="text-gray-600">I'll build you a simple, visual dashboard that provides the professional reports lenders want to see and the detailed breakdown you need to identify savings opportunities. It's an easy to use tool for your money, delivered in a familiar format.</p>
                     </div>
-                    <hr class="my-4">
-                    <h4 class="font-bold text-center text-lg text-[#4A4A4A]">Debt & Savings Hub</h4>
-                     <div class="mt-4 space-y-2 text-sm">
-                        <div class="flex justify-between"><span>Car Loan Balance:</span> <span>J$850,000</span></div>
-                        <div class="flex justify-between"><span>Credit Card Balance:</span> <span>J$120,000</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- For Your Business -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="md:order-2">
-                    <h3 class="font-bold text-xl text-[#A38A70]">For Your Business</h3>
-                    <p class="mt-2 text-gray-600 leading-relaxed">We create your **Digital Filing Cabinet**. We'll organize your invoices, receipts, and important documents into a logical system. This makes tax time simple and provides the professional records you need to get a business loan.</p>
-                </div>
-                <div class="md:order-1 bg-[#EFEBE7] p-6 rounded-lg font-mono text-sm text-[#4A4A4A]">
-                    <p>📁 MY_BUSINESS</p>
-                    <div class="ml-4 mt-2 border-l-2 border-gray-400 pl-4">
-                        <p>📄 01_Invoices</p>
-                        <p>📄 02_Receipts</p>
-                        <p>📄 03_Important_Documents</p>
+                    <!-- Service 2: Digital File Organization -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-red-600 font-semibold">The Goal:</p>
+                        <h3 class="text-2xl font-bold text-teal-medium mb-4">Instantly find any document you need.</h3>
+                        <p class="text-gray-600 mb-4">Stop the headache of searching for bank statements, invoices, or tax forms when a lender asks for them. A messy digital life creates stress and delays your progress.</p>
+                        <p class="text-green-700 font-semibold">The Solution:</p>
+                        <p class="text-gray-600">I'll organize your important **documents** with a logical, easy to use digital folder system. You'll be able to find any file in seconds, making loan applications and financial planning stress-free.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="section-spacing">
-            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                    <div class="md:col-span-1">
-                        <img src="https://placehold.co/400x400/EFEBE7/A38A70?text=LC" alt="Laura Clarke" class="rounded-full mx-auto w-48 h-48 md:w-full md:h-auto object-cover">
-                    </div>
-                    <div class="md:col-span-2">
-                        <h2 class="text-2xl md:text-3xl font-semibold text-center md:text-left text-[#4A4A4A]">I'm Laura, Your Admin Specialist</h2>
-                        <p class="mt-4 text-gray-600 leading-relaxed">I'm a detail-oriented professional with a passion for helping Jamaican entrepreneurs succeed. I specialize in turning disorganized paperwork into a strategic asset that unlocks opportunities. My mission is to provide the administrative backbone that allows your business to grow.</p>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="bg-white py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-teal-dark mb-12">Portfolio Showcase</h2>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-teal-medium mb-4">Custom Financial Dashboard</h3>
+                            <p class="text-gray-600 mb-6">A powerful yet simple tool to track your finances. This dashboard is fully customized for personal or business/project use.</p>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><span class="text-teal-medium mr-2">&#10003;</span> Dynamic Personal & Project Views</li>
+                                <li class="flex items-center"><span class="text-teal-medium mr-2">&#10003;</span> Automated Calculation of Key Totals</li>
+                                <li class="flex items-center"><span class="text-teal-medium mr-2">&#10003;</span> Visual Pie and Bar Charts for Analysis</li>
+                                <li class="flex items-center"><span class="text-teal-medium mr-2">&#10003;</span> Simple, User-Friendly Transaction Ledger</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <!-- === UPDATE THIS LINE === -->
+                            <img src="YOUR_IMAGE_URL_HERE" alt="Dashboard Screenshot" class="rounded-lg shadow-md">
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="text-3xl font-bold text-center text-teal-dark mb-6">Your Partner in Achieving Your Goals</h2>
+                <p class="text-lg text-gray-600">As a detail-oriented Administrative Specialist, I'm passionate about helping young professionals and small businesses succeed. I specialize in taking the headache out of managing money and documents so you can focus on what matters: securing that loan, growing your savings, and building your future. I build easy to use solutions in familiar and accessible formats.</p>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section-spacing text-center bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <h2 class="text-2xl md:text-3xl font-semibold text-[#4A4A4A]">Ready for Your Fresh Start?</h2>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">Let's get your finances organized and loan-ready. Reach out for a free, no-pressure consultation to see how I can help.</p>
-            <div class="mt-8">
-                 <a href="#contact" class="inline-block btn-primary font-bold py-3 px-8 rounded-full text-lg">Book Your Free Consultation</a>
-            </div>
-            <div class="mt-8 flex justify-center items-center space-x-8">
-                <a href="mailto:laura.myjourney@gmail.com" class="text-[#A38A70] hover:text-[#4A4A4A] transition-colors duration-300" title="Email Me">
-                    <i class="fas fa-envelope fa-2x"></i>
-                </a>
-                <a href="https://wa.me/18765551234" target="_blank" rel="noopener noreferrer" class="text-[#A38A70] hover:text-[#4A4A4A] transition-colors duration-300" title="Message me on WhatsApp">
-                    <i class="fab fa-whatsapp fa-2x"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="text-[#A38A70] hover:text-[#4A4A4A] transition-colors duration-300" title="Connect on LinkedIn">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
+        <section id="contact" class="bg-teal-dark text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Reach Your Financial Goals?</h2>
+                <p class="text-lg text-teal-light mb-8 max-w-2xl mx-auto">Let's talk about your specific ambitions and how a simple, custom solution can help you get there. Reach out for a free, no-obligation consultation.</p>
+                <a href="mailto:lauraclarke.solutions@gmail.com" class="inline-block bg-white text-teal-dark px-8 py-3 rounded-md text-lg font-semibold hover:bg-teal-light hover:text-teal-dark transition duration-300">lauraclarke.solutions@gmail.com</a>
             </div>
         </section>
+    </main>
 
+    <!-- Footer -->
+    <footer class="bg-white py-6">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 Laura Clarke. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-        <!-- Footer -->
-        <footer class="mt-20 text-center text-gray-500">
-            <p>&copy; 2025 The Admin Specialist | Laura Clarke</p>
-        </footer>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    </div>
-    
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 </html>
