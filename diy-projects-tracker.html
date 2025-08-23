@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Projects Tracker - Visual Mockup</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for realistic chart visuals -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* A light grey background */
+        }
+        /* Custom teal color classes for consistency */
+        .bg-teal-dark { background-color: #004D40; }
+        .bg-teal-medium { background-color: #00796B; }
+        .bg-teal-light { background-color: #B2DFDB; }
+        .text-teal-dark { color: #004D40; }
+        .text-teal-medium { color: #00796B; }
+        .border-teal-dark { border-color: #004D40; }
+        .status-tag {
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+
+        <!-- Header Section -->
+        <header class="border-b pb-4 mb-6">
+            <h1 class="text-3xl font-bold text-teal-dark">DIY Projects Tracker</h1>
+            <p class="text-gray-500 mt-1">Your central hub for managing project finances and tasks.</p>
+        </header>
+
+        <!-- KPI Cards Section -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Card 1: Total Funds In -->
+            <div class="bg-teal-dark text-white p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-teal-light">Total Funds In</h2>
+                <p class="text-4xl font-bold mt-2">$15,000.00</p>
+            </div>
+            <!-- Card 2: Total Project Spending -->
+            <div class="bg-white border border-gray-200 p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-gray-600">Total Project Spending</h2>
+                <p class="text-4xl font-bold text-red-600 mt-2">$8,500.00</p>
+            </div>
+            <!-- Card 3: Net Position -->
+            <div class="bg-white border border-gray-200 p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-gray-600">Net Position</h2>
+                <p class="text-4xl font-bold text-teal-medium mt-2">$6,500.00</p>
+                 <p class="text-sm text-gray-500">(Profit / Funds Remaining)</p>
+            </div>
+        </section>
+
+        <!-- Project Task List Section -->
+        <section class="mb-8">
+             <h3 class="text-xl font-bold text-teal-dark mb-4">Project Task List</h3>
+             <div class="bg-gray-50 p-4 rounded-xl border overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="p-3 font-semibold text-gray-600">Task Description</th>
+                            <th class="p-3 font-semibold text-gray-600">Due Date</th>
+                            <th class="p-3 font-semibold text-gray-600 text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-3 font-medium">Finalize plumbing contract</td>
+                            <td class="p-3 text-gray-600">2025-08-25</td>
+                            <td class="p-3 text-center"><span class="status-tag bg-green-100 text-green-800">Completed</span></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-medium">Purchase project materials</td>
+                            <td class="p-3 text-gray-600">2025-08-30</td>
+                            <td class="p-3 text-center"><span class="status-tag bg-yellow-100 text-yellow-800">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-medium">Schedule electrical inspection</td>
+                            <td class="p-3 text-gray-600">2025-09-15</td>
+                            <td class="p-3 text-center"><span class="status-tag bg-gray-200 text-gray-800">Not Started</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+             </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <!-- Pie Chart -->
+            <div class="lg:col-span-2 bg-gray-50 p-6 rounded-xl border">
+                <h3 class="text-xl font-bold text-teal-dark mb-4 text-center">Spending by Category</h3>
+                <canvas id="spendingPieChart"></canvas>
+            </div>
+            <!-- Bar Chart -->
+            <div class="lg:col-span-3 bg-gray-50 p-6 rounded-xl border">
+                <h3 class="text-xl font-bold text-teal-dark mb-4 text-center">Funds In vs. Spending</h3>
+                <canvas id="fundsBarChart"></canvas>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Data and setup for the Spending Breakdown Pie Chart
+        const spendingData = {
+            labels: ['Project Materials', 'Contractor Labor', 'Permits & Fees', 'Tools'],
+            datasets: [{
+                label: 'Spending',
+                data: [4500, 3000, 500, 500],
+                backgroundColor: [
+                    '#004D40', // Dark Teal
+                    '#00796B', // Medium Teal
+                    '#4DB6AC', // Lighter Teal
+                    '#B2DFDB', // Lightest Teal
+                ],
+                hoverOffset: 4
+            }]
+        };
+        new Chart(document.getElementById('spendingPieChart'), {
+            type: 'doughnut',
+            data: spendingData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+
+        // Data and setup for the Funds In vs. Spending Bar Chart
+        const fundsData = {
+            labels: ['Total Funds In', 'Total Spending'],
+            datasets: [{
+                label: 'Amount ($)',
+                data: [15000, 8500],
+                backgroundColor: [
+                    '#00796B', // Medium Teal for Funds
+                    '#E57373'  // A soft red for Spending
+                ],
+                borderRadius: 5
+            }]
+        };
+        new Chart(document.getElementById('fundsBarChart'), {
+            type: 'bar',
+            data: fundsData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

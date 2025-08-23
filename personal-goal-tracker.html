@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Financial Goal Tracker - Visual Mockup</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for realistic chart visuals -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* A light grey background */
+        }
+        /* Custom teal color classes for consistency */
+        .bg-teal-dark { background-color: #004D40; }
+        .bg-teal-medium { background-color: #00796B; }
+        .bg-teal-light { background-color: #B2DFDB; }
+        .text-teal-dark { color: #004D40; }
+        .text-teal-medium { color: #00796B; }
+        .progress-bar-fill {
+            background-color: #00796B;
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+
+        <!-- Header Section -->
+        <header class="border-b pb-4 mb-6">
+            <h1 class="text-3xl font-bold text-teal-dark">Personal Financial Goal Dashboard</h1>
+            <p class="text-gray-500 mt-1">Tracking your progress towards your biggest financial goals.</p>
+        </header>
+
+        <!-- KPI Cards Section -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Card 1: Monthly Spending -->
+            <div class="bg-teal-dark text-white p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-teal-light">Monthly Spending</h2>
+                <p class="text-4xl font-bold mt-2">$2,500.00</p>
+            </div>
+            <!-- Card 2: Current Savings Total -->
+            <div class="bg-white border border-gray-200 p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-gray-600">Current Savings Total</h2>
+                <p class="text-4xl font-bold text-teal-medium mt-2">$4,500.00</p>
+            </div>
+            <!-- Card 3: Current Debt -->
+            <div class="bg-white border border-gray-200 p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-gray-600">Current Debt</h2>
+                <p class="text-4xl font-bold text-red-600 mt-2">$55,000.00</p>
+                 <p class="text-sm text-gray-500">Current Balance</p>
+            </div>
+        </section>
+
+        <!-- Goal & Debt Tables Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- My Savings Goals Table -->
+            <div class="bg-gray-50 p-6 rounded-xl border">
+                <h3 class="text-xl font-bold text-teal-dark mb-4">My Savings Goals</h3>
+                <div class="space-y-4">
+                    <!-- Goal 1 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-medium text-gray-700">Emergency Fund</span>
+                            <span class="text-sm text-gray-500">$3,000 / $10,000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="progress-bar-fill h-4 rounded-full" style="width: 30%;"></div>
+                        </div>
+                         <p class="text-right text-lg font-semibold text-teal-medium">30%</p>
+                    </div>
+                    <!-- Goal 2 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-medium text-gray-700">New Laptop</span>
+                            <span class="text-sm text-gray-500">$1,500 / $2,000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="progress-bar-fill h-4 rounded-full" style="width: 75%;"></div>
+                        </div>
+                        <p class="text-right text-lg font-semibold text-teal-medium">75%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Debt Reduction Plan Table -->
+            <div class="bg-gray-50 p-6 rounded-xl border">
+                <h3 class="text-xl font-bold text-teal-dark mb-4">My Debt Reduction Plan</h3>
+                <div class="space-y-4">
+                    <!-- Debt 1 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-medium text-gray-700">Credit Card</span>
+                            <span class="text-sm text-gray-500">20% Paid Off</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="progress-bar-fill h-4 rounded-full" style="width: 20%;"></div>
+                        </div>
+                        <p class="text-right text-gray-600">$40,000 / $50,000</p>
+                    </div>
+                    <!-- Debt 2 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-medium text-gray-700">Car Loan</span>
+                            <span class="text-sm text-gray-500">50% Paid Off</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="progress-bar-fill h-4 rounded-full" style="width: 50%;"></div>
+                        </div>
+                         <p class="text-right text-gray-600">$15,000 / $30,000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spending Breakdown Chart -->
+        <section class="bg-gray-50 p-6 rounded-xl border">
+            <h3 class="text-xl font-bold text-teal-dark mb-4 text-center">Spending Breakdown</h3>
+            <div class="max-w-sm mx-auto">
+                <canvas id="spendingPieChart"></canvas>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Data and setup for the Spending Breakdown Pie Chart
+        const spendingData = {
+            labels: ['Housing', 'Groceries', 'Transportation', 'Utilities', 'Shopping'],
+            datasets: [{
+                label: 'Spending',
+                data: [1000, 600, 300, 400, 200],
+                backgroundColor: [
+                    '#004D40', // Dark Teal
+                    '#00796B', // Medium Teal
+                    '#4DB6AC', // Lighter Teal
+                    '#B2DFDB', // Lightest Teal
+                    '#80CBC4'  // Another shade
+                ],
+                hoverOffset: 4
+            }]
+        };
+        new Chart(document.getElementById('spendingPieChart'), {
+            type: 'doughnut',
+            data: spendingData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
