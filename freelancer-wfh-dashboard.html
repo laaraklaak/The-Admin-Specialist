@@ -3,156 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solution: Freelancer & WFH Dashboard</title>
+    <title>Freelancer & WFH Dashboard - Laura Clarke Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f0e8;
-            color: #5e5e5e;
-        }
+        body { font-family: 'Inter', sans-serif; }
         .bg-base { background-color: #f3f0e8; }
         .text-main { color: #5e5e5e; }
         .text-subtle { color: #858480; }
-        .border-cool-accent { border-color: #b9b99d; }
-        .bg-warm-accent { background-color: #dcb482; }
-        .status-paid { background-color: #b9b99d; color: white; }
-        .status-invoiced { background-color: #dcb482; color: white; }
+        .text-accent-warm { color: #dcb482; }
+        .bg-teal-dark { background-color: #004D40; }
+        .bg-teal-medium { background-color: #00796B; }
+        .text-teal-dark { color: #004D40; }
+        .text-teal-medium { color: #00796B; }
+        .status-tag { padding: 4px 12px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
     </style>
 </head>
-<body class="bg-base">
+<body class="bg-base text-main">
 
-    <!-- Project Navigation -->
-    <header class="border-b border-cool-accent/50 bg-base/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center text-sm md:text-base">
-            <a href="./diy-projects-tracker.html" class="text-subtle hover:text-main">&larr; Previous</a>
-            <a href="./index.html" class="font-bold text-main hover:underline">Back to Portfolio</a>
-            <a href="./personal-goal-tracker.html" class="text-subtle hover:text-main">Next &rarr;</a>
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="./index.html" class="text-lg font-semibold text-subtle hover:text-main transition duration-300">&larr; Back to Portfolio</a>
+            <div class="flex space-x-4">
+                <a href="./diy-projects-tracker.html" class="text-subtle hover:text-main transition duration-300">Previous</a>
+                <span class="text-subtle">|</span>
+                <a href="./personal-goal-tracker.html" class="text-subtle hover:text-main transition duration-300">Next</a>
+            </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 md:px-6 py-12">
-        <div class="text-center mb-10">
-            <h1 class="text-3xl md:text-4xl font-bold text-main mb-2">Freelancer & WFH Dashboard</h1>
-            <p class="text-lg text-subtle max-w-3xl mx-auto">An all-in-one tool to track income, manage expenses, and monitor productivity for your freelance business.</p>
-        </div>
+    <main class="py-16">
+        <div class="container mx-auto px-6 max-w-5xl">
 
-        <!-- HTML Mockup of the Tracker -->
-        <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-4 md:p-8 border border-cool-accent/50">
-            <!-- KPI Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Monthly Revenue</p>
-                    <p class="text-2xl font-bold text-main">$4,200</p>
-                </div>
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Business Expenses</p>
-                    <p class="text-2xl font-bold text-main">$350</p>
-                </div>
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Net Profit</p>
-                    <p class="text-2xl font-bold text-green-700">$3,850</p>
-                </div>
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Billable Hours (Week)</p>
-                    <p class="text-2xl font-bold text-main">32</p>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-main text-center">Meet John: The Freelance Designer</h2>
+                <p class="mt-4 text-lg text-subtle text-center max-w-3xl mx-auto">John is a graphic designer in Mandeville working from home. He's busy with multiple clients, but struggles to track his income, business expenses, and whether he's actually profitable each month. He needs a simple way to see his business performance without complex accounting software.</p>
+            </section>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-main text-center mb-8">The Solution: Your Business Command Center</h3>
+                <p class="text-subtle text-center mb-10">The Freelancer & WFH Dashboard is the perfect tool for John. It combines project tracking, financial management, and productivity logging into one simple view, giving him the clarity to manage his business and maximize his profit.</p>
+                
+                <!-- How It Works Section -->
+                <section class="my-12">
+                    <h3 class="text-2xl font-bold text-main text-center mb-4">How It Works: A Simple Process</h3>
+                    <p class="text-center text-subtle max-w-2xl mx-auto mb-10">This tracker is designed to be your all-in-one business hub. A few simple habits are all it takes to stay in control of your projects and finances.</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-center">
+                        <div class="p-4">
+                            <p class="text-accent-warm font-bold text-xl">1. Track Projects</p>
+                            <p class="mt-2 text-subtle">Log your client work and update its status.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-accent-warm hidden md:block">&rarr;</div>
+                        <div class="p-4">
+                            <p class="text-accent-warm font-bold text-xl">2. Log Finances</p>
+                            <p class="mt-2 text-subtle">Record your client payments and business expenses.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-accent-warm hidden md:block">&rarr;</div>
+                        <div class="p-4">
+                            <p class="text-accent-warm font-bold text-xl">3. See Performance</p>
+                            <p class="mt-2 text-subtle">Watch your dashboard update with your real-time profit.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="max-w-4xl mx-auto border rounded-xl p-4">
+                    <header class="border-b pb-4 mb-6"><h1 class="text-2xl font-bold text-teal-dark">Freelancer & WFH Dashboard</h1></header>
+                    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-teal-dark text-white p-3 rounded-lg shadow text-center"><h2 class="font-semibold text-sm">Revenue</h2><p class="text-xl font-bold">$7,500</p></div>
+                        <div class="bg-white border p-3 rounded-lg shadow text-center"><h2 class="font-semibold text-sm">Expenses</h2><p class="text-xl font-bold text-red-600">$1,200</p></div>
+                        <div class="bg-white border p-3 rounded-lg shadow text-center"><h2 class="font-semibold text-sm">Net Profit</h2><p class="text-xl font-bold text-teal-medium">$6,300</p></div>
+                        <div class="bg-white border p-3 rounded-lg shadow text-center"><h2 class="font-semibold text-sm">Billable Hours</h2><p class="text-xl font-bold text-teal-medium">112</p></div>
+                    </section>
+                    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2">Active Project Tracker</h3><table class="w-full text-sm"><thead><tr class="border-b"><th class="p-2 font-semibold text-left">Project</th><th class="p-2 font-semibold text-center">Status</th></tr></thead><tbody><tr><td class="p-2">Client A</td><td class="p-2 text-center"><span class="status-tag bg-green-100 text-green-800">Paid</span></td></tr><tr><td class="p-2">Client B</td><td class="p-2 text-center"><span class="status-tag bg-yellow-100 text-yellow-800">In Progress</span></td></tr></tbody></table></div>
+                        <div class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2">Productivity Log</h3><table class="w-full text-sm"><thead><tr class="border-b"><th class="p-2 font-semibold text-left">Task</th><th class="p-2 font-semibold text-right">Hours</th></tr></thead><tbody><tr><td class="p-2">Client B - Build</td><td class="p-2 font-bold text-right">6</td></tr><tr><td class="p-2">Client A - Final Edits</td><td class="p-2 font-bold text-right">2</td></tr></tbody></table></div>
+                    </section>
+                    <section class="grid grid-cols-1 lg:grid-cols-2 gap-4"><div class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2 text-center">Income by Project</h3><div class="max-w-xs mx-auto"><canvas id="incomePieChart"></canvas></div></div><div class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2 text-center">Expense Breakdown</h3><canvas id="expenseBarChart"></canvas></div></section>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Left & Middle Column: Tables -->
-                <div class="lg:col-span-2 space-y-8">
-                    <!-- Active Project Tracker -->
-                    <div>
-                        <h3 class="text-xl font-bold text-main mb-4">Active Project Tracker</h3>
-                        <div class="overflow-x-auto bg-base/50 rounded-lg border border-cool-accent/30">
-                            <table class="w-full text-left text-sm">
-                                <thead class="border-b border-cool-accent/30 text-subtle">
-                                    <tr>
-                                        <th class="p-3">Project/Client</th>
-                                        <th class="p-3">Amount</th>
-                                        <th class="p-3">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-cool-accent/20">
-                                        <td class="p-3 font-medium">ABC Corp Website</td>
-                                        <td class="p-3 text-subtle">$2,500</td>
-                                        <td class="p-3"><span class="px-2 py-1 text-xs font-semibold rounded-full status-paid">Paid</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">Jamaica Foods Logo</td>
-                                        <td class="p-3 text-subtle">$1,700</td>
-                                        <td class="p-3"><span class="px-2 py-1 text-xs font-semibold rounded-full status-invoiced">Invoiced</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- Weekly Productivity Log -->
-                    <div>
-                        <h3 class="text-xl font-bold text-main mb-4">Weekly Productivity Log</h3>
-                        <div class="overflow-x-auto bg-base/50 rounded-lg border border-cool-accent/30">
-                            <table class="w-full text-left text-sm">
-                                <thead class="border-b border-cool-accent/30 text-subtle">
-                                    <tr>
-                                        <th class="p-3">Day</th>
-                                        <th class="p-3">Hours Logged</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-cool-accent/20">
-                                        <td class="p-3 font-medium">Monday</td>
-                                        <td class="p-3 text-subtle">8</td>
-                                    </tr>
-                                    <tr class="border-b border-cool-accent/20">
-                                        <td class="p-3 font-medium">Tuesday</td>
-                                        <td class="p-3 text-subtle">6.5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">Wednesday</td>
-                                        <td class="p-3 text-subtle">7.5</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Charts -->
-                <div class="lg:col-span-1 space-y-8">
-                    <!-- Income by Project -->
-                    <div>
-                        <h3 class="text-xl font-bold text-main mb-4">Income by Project</h3>
-                        <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 space-y-3">
-                            <div>
-                                <p class="text-xs font-medium mb-1">ABC Corp Website</p>
-                                <div class="w-full progress-bar-bg rounded-full h-4"><div class="bg-warm-accent h-4 rounded-full" style="width: 100%"></div></div>
-                            </div>
-                            <div>
-                                <p class="text-xs font-medium mb-1">Jamaica Foods Logo</p>
-                                <div class="w-full progress-bar-bg rounded-full h-4"><div class="bg-warm-accent h-4 rounded-full" style="width: 68%"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Expense Breakdown -->
-                    <div>
-                        <h3 class="text-xl font-bold text-main mb-4">Expense Breakdown</h3>
-                        <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30">
-                            <div class="w-32 h-32 mx-auto my-2 rounded-full" style="background-image: conic-gradient(#b9b99d 0% 70%, #858480 70% 100%);"></div>
-                            <div class="text-xs text-center space-y-1">
-                                <p><span class="inline-block w-2.5 h-2.5 rounded-full mr-2" style="background-color: #b9b99d;"></span>Software: 70%</p>
-                                <p><span class="inline-block w-2.5 h-2.5 rounded-full mr-2" style="background-color: #858480;"></span>Marketing: 30%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
+    
+    <footer class="py-10 mt-12">
+        <div class="container mx-auto px-6 text-center text-subtle">
+            <p>&copy; 2025 Laura Clarke. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        new Chart(document.getElementById('incomePieChart'), { type: 'doughnut', data: { labels: ['Client A', 'Client B'], datasets: [{ data: [2500, 5000], backgroundColor: ['#004D40', '#00796B'] }] }, options: { responsive: true, plugins: { legend: { position: 'bottom' } } } });
+        new Chart(document.getElementById('expenseBarChart'), { type: 'bar', data: { labels: ['Software', 'Marketing', 'Supplies'], datasets: [{ label: 'Expenses ($)', data: [450, 300, 150], backgroundColor: '#00796B', borderRadius: 5 }] }, options: { responsive: true, plugins: { legend: { display: false } } } });
+    </script>
+
 </body>
 </html>
