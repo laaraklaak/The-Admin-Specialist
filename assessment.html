@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Assessment | Laura Clarke Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #f3f0e8;
+            --text-main: #5e5e5e;
+            --text-subtle: #858480;
+            --accent-warm: #dcb482;
+            --accent-cool: #b9b99d;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+       .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        header.logo a {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+       .form-container {
+            background-color: #fff;
+            border: 1px solid #e0ddd5;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+       .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+       .form-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+       .form-header p {
+            color: var(--text-subtle);
+        }
+       .form-group {
+            margin-bottom: 25px;
+        }
+       .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+       .form-group input[type="text"],
+       .form-group input[type="email"],
+       .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+       .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+       .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+       .checkbox-group input {
+            margin-right: 10px;
+        }
+       .btn {
+            display: block;
+            width: 100%;
+            background-color: var(--accent-warm);
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+       .btn:hover {
+            background-color: #c9a270;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">Laura Clarke Solutions</a></div>
+    </header>
+
+    <main class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Let's Get Started</h1>
+                <p>Tell me a little about your needs. I'll review your submission and get back to you within 48 hours to schedule a free consultation.</p>
+            </div>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="challenge">What is your biggest organizational or financial challenge right now?</label>
+                    <textarea id="challenge" name="challenge" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Which solution(s) are you most interested in?</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="interest" value="spending"> Spending & Savings Tracker</label>
+                        <label><input type="checkbox" name="interest" value="goal"> Personal Goal Tracker</label>
+                        <label><input type="checkbox" name="interest" value="project"> DIY & Projects Tracker</label>
+                        <label><input type="checkbox" name="interest" value="freelancer"> Freelancer & WFH Dashboard</label>
+                        <label><input type="checkbox" name="interest" value="consultation"> General Consultation</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Submit My Assessment</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            &copy; 2025 Laura Clarke Solutions | Kingston, Jamaica
+        </div>
+    </footer>
+
+</body>
+</html>
