@@ -3,114 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Financial Goal Tracker - Laura Clarke Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Personal Goal Tracker | Laura Clarke Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .bg-base { background-color: #f3f0e8; }
-        .text-main { color: #5e5e5e; }
-        .text-subtle { color: #858480; }
-        .text-accent-warm { color: #dcb482; }
-        .bg-teal-dark { background-color: #004D40; }
-        .bg-teal-medium { background-color: #00796B; }
-        .text-teal-dark { color: #004D40; }
-        .text-teal-medium { color: #00796B; }
-        .progress-bar-fill { background-color: #00796B; }
+        :root {
+            --bg-base: #f3f0e8;
+            --text-main: #5e5e5e;
+            --text-subtle: #858480;
+            --accent-warm: #dcb482;
+            --accent-cool: #b9b99d;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+       .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+       .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0ddd5;
+            margin-bottom: 40px;
+        }
+       .project-nav a {
+            color: var(--text-subtle);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+       .project-nav a:hover {
+            color: var(--accent-warm);
+            border-color: var(--accent-warm);
+        }
+       .project-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+       .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+       .project-header p {
+            font-size: 1.1rem;
+            color: var(--text-subtle);
+        }
+       .project-section {
+            margin-bottom: 50px;
+        }
+       .project-section h2 {
+            font-size: 1.5rem;
+            color: var(--accent-warm);
+            border-bottom: 2px solid var(--accent-cool);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+       .scenario-box {
+            background-color: #fff;
+            border-left: 4px solid var(--accent-cool);
+            padding: 20px;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+        }
+       .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+       .step.icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+       .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+       .full-mockup {
+            background-color: #fff;
+            border: 1px solid #e0ddd5;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+       .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+       .mockup-kpis {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+       .kpi-item {
+            background-color: var(--bg-base);
+            padding: 15px;
+            border-radius: 6px;
+        }
+       .kpi-item.label {
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+        }
+       .kpi-item.value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+       .mockup-progress-bar {
+            width: 100%;
+            height: 25px;
+            background-color: #e0ddd5;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+       .mockup-progress {
+            width: 63%;
+            height: 100%;
+            background-color: var(--accent-cool);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+       .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-subtle);
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+        }
     </style>
 </head>
-<body class="bg-base text-main">
+<body>
 
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="./index.html" class="text-lg font-semibold text-subtle hover:text-main transition duration-300">&larr; Back to Portfolio</a>
-            <div class="flex space-x-4">
-                <a href="./diy-projects-tracker.html" class="text-subtle hover:text-main transition duration-300">Previous</a>
-                <span class="text-subtle">|</span>
-                <a href="./spending-savings-tracker.html" class="text-subtle hover:text-main transition duration-300">Next</a>
-            </div>
+    <div class="container">
+        <nav class="project-nav">
+            <a href="freelancer-wfh-dashboard.html">&larr; Previous</a>
+            <a href="index.html#solutions">Back to Solutions</a>
+            <a href="spending-savings-tracker.html">Next &rarr;</a>
         </nav>
-    </header>
 
-    <main class="py-16">
-        <div class="container mx-auto px-6 max-w-5xl">
+        <main>
+            <header class="project-header">
+                <h1>Personal Goal Tracker</h1>
+                <p>Turn your big dreams into an achievable, step-by-step plan.</p>
+            </header>
 
-            <!-- Scenario Section -->
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold text-main text-center">Meet Anna: The Ambitious Professional</h2>
-                <p class="mt-4 text-lg text-subtle text-center max-w-3xl mx-auto">Anna is a young professional in Kingston. She's earning a good salary, but feels like she's not making progress. She wants to save for a new laptop for her side hustle while also paying down her car loan, but she's not sure where her money is going each month. She needs a single, clear view of her entire financial life.</p>
+            <section class="project-section">
+                <h2>The Scenario</h2>
+                <div class="scenario-box">
+                    <p>"Anna, a young professional in Kingston, dreams of buying her first car. She saves what she can each month, but without a clear plan, the goal feels distant and sometimes impossible. She isn't sure if she's on track, how far she has to go, or when she might actually reach her goal. This uncertainty is discouraging."</p>
+                </div>
             </section>
 
-            <!-- Solution Section -->
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-main text-center mb-8">The Solution: A Complete Financial Command Center</h3>
-                <p class="text-subtle text-center mb-10">The Personal Financial Goal Tracker is the perfect tool for Anna. It combines her spending, savings, and debt into one easy-to-understand dashboard, giving her the clarity she needs to make smart decisions.</p>
-                
-                <!-- How It Works Section -->
-                <section class="my-12">
-                    <h3 class="text-2xl font-bold text-main text-center mb-4">How It Works: A Simple Process</h3>
-                    <p class="text-center text-subtle max-w-2xl mx-auto mb-10">The power of the dashboard lies in its simple, automated workflow. A consistent habit of logging transactions is all it takes to maintain a clear, real-time view of your entire financial picture.</p>
-                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-center">
-                        <div class="p-4">
-                            <p class="text-accent-warm font-bold text-xl">1. Set Goals</p>
-                            <p class="mt-2 text-subtle">Define your savings targets and debt plans.</p>
+            <section class="project-section">
+                <h2>The Solution</h2>
+                <p>The Personal Goal Tracker is a simple, visual dashboard that transforms Anna's dream into a tangible project. It gives her a single place to see her progress in real-time, providing the motivation and clarity she needs to stay focused. Instead of guessing, she knows exactly where she stands, making her feel empowered and in control of her financial future.</p>
+            </section>
+            
+            <section class="project-section">
+                <h2>How It Works</h2>
+                <div class="how-it-works-grid">
+                    <div class="step">
+                        <div class="icon">🎯</div>
+                        <h3>1. Set Your Goal</h3>
+                        <p>Define what you're saving for, the total amount needed, and your target date.</p>
+                    </div>
+                    <div class="step">
+                        <div class="icon">💰</div>
+                        <h3>2. Log Your Savings</h3>
+                        <p>Easily record every deposit you make towards your goal, whether big or small.</p>
+                    </div>
+                    <div class="step">
+                        <div class="icon">📈</div>
+                        <h3>3. See Your Progress</h3>
+                        <p>Watch your progress bar grow and get a clear, real-time view of how close you are.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>The Dashboard in Action</h2>
+                <div class="full-mockup">
+                    <div class="mockup-header">
+                        <h3 style="margin: 0;">Anna's Car Fund</h3>
+                        <span style="color: var(--text-subtle); font-weight: 600;">Target Date: Dec 2025</span>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid #e0ddd5; margin: 15px 0;">
+                    <div class="mockup-kpis">
+                        <div class="kpi-item">
+                            <div class="label">Goal Amount</div>
+                            <div class="value">$1,500,000</div>
                         </div>
-                        <div class="text-2xl font-bold text-accent-warm hidden md:block">&rarr;</div>
-                        <div class="p-4">
-                            <p class="text-accent-warm font-bold text-xl">2. Log Transactions</p>
-                            <p class="mt-2 text-subtle">Record your daily income and spending.</p>
+                        <div class="kpi-item">
+                            <div class="label">Amount Saved</div>
+                            <div class="value" style="color: var(--accent-cool);">$950,000</div>
                         </div>
-                        <div class="text-2xl font-bold text-accent-warm hidden md:block">&rarr;</div>
-                        <div class="p-4">
-                            <p class="text-accent-warm font-bold text-xl">3. See Progress</p>
-                            <p class="mt-2 text-subtle">Watch your dashboard update automatically.</p>
+                        <div class="kpi-item">
+                            <div class="label">Amount Remaining</div>
+                            <div class="value" style="color: var(--accent-warm);">$550,000</div>
                         </div>
                     </div>
-                </section>
-
-                <!-- Full Visual Mockup -->
-                <div class="max-w-4xl mx-auto border rounded-xl p-4">
-                    <!-- Header -->
-                    <header class="border-b pb-4 mb-6">
-                        <h1 class="text-2xl font-bold text-teal-dark">Personal Financial Goal Dashboard</h1>
-                        <p class="text-gray-500 mt-1">Tracking your progress towards your biggest financial goals.</p>
-                    </header>
-                    <!-- KPIs -->
-                    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                        <div class="bg-teal-dark text-white p-4 rounded-lg shadow text-center"><h2 class="font-semibold">Monthly Spending</h2><p class="text-2xl font-bold">$73,300</p></div>
-                        <div class="bg-white border p-4 rounded-lg shadow text-center"><h2 class="font-semibold">Savings Total</h2><p class="text-2xl font-bold text-teal-medium">$6,000</p></div>
-                        <div class="bg-white border p-4 rounded-lg shadow text-center"><h2 class="font-semibold">Current Debt</h2><p class="text-2xl font-bold text-red-600">$1.34M</p></div>
-                    </section>
-                    <!-- Goal & Debt Tables -->
-                    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                        <div class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2">My Savings Goals</h3><div class="space-y-2"><div><div class="flex justify-between text-sm"><span class="font-medium">New Laptop</span><span>5%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="progress-bar-fill h-2.5 rounded-full" style="width: 5%"></div></div></div></div></div>
-                        <div class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2">My Debt Reduction Plan</h3><div class="space-y-2"><div><div class="flex justify-between text-sm"><span class="font-medium">NCB Car Loan</span><span>13% Paid</span></div><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="progress-bar-fill h-2.5 rounded-full" style="width: 13.33%"></div></div></div></div></div>
-                    </section>
-                    <!-- Chart -->
-                    <section class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2 text-center">Spending Breakdown</h3><div class="max-w-xs mx-auto"><canvas id="spendingPieChart"></canvas></div></section>
+                    <div class="mockup-progress-bar">
+                        <div class="mockup-progress">63%</div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>$0</span>
+                        <span>$1,500,000</span>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-    </main>
+            </section>
+        </main>
+    </div>
     
-    <footer class="py-10 mt-12">
-        <div class="container mx-auto px-6 text-center text-subtle">
-            <p>&copy; 2025 Laura Clarke. All Rights Reserved.</p>
+    <footer>
+        <div class="container">
+            &copy; 2025 Laura Clarke Solutions | Kingston, Jamaica
         </div>
     </footer>
-
-    <script>
-        new Chart(document.getElementById('spendingPieChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Salary', 'Debt', 'Groceries', 'Utilities', 'Savings'],
-                datasets: [{ data: [75000, 39300, 17000, 11000, 6000], backgroundColor: ['#b9b99d', '#dcb482', '#858480', '#5e5e5e', '#00796B'] }]
-            },
-            options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-        });
-    </script>
 
 </body>
 </html>
