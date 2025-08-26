@@ -3,132 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solution: DIY Projects Tracker</title>
+    <title>DIY Projects Tracker - Laura Clarke Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f0e8;
-            color: #5e5e5e;
-        }
+        body { font-family: 'Inter', sans-serif; }
         .bg-base { background-color: #f3f0e8; }
         .text-main { color: #5e5e5e; }
         .text-subtle { color: #858480; }
-        .bg-warm-accent { background-color: #dcb482; }
-        .border-cool-accent { border-color: #b9b99d; }
-        .bg-cool-accent { background-color: #b9b99d; }
-        .status-completed { background-color: #b9b99d; color: white; }
-        .status-inprogress { background-color: #dcb482; color: white; }
-        .status-notstarted { background-color: #e0e0e0; color: #858480; }
+        .bg-teal-dark { background-color: #004D40; }
+        .text-teal-dark { color: #004D40; }
+        .text-accent-warm { color: #dcb482; }
+        .status-tag { padding: 4px 12px; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
     </style>
 </head>
-<body class="bg-base">
+<body class="bg-base text-main">
 
-    <!-- Project Navigation -->
-    <header class="border-b border-cool-accent/50 bg-base/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center text-sm md:text-base">
-            <a href="./spending-savings-tracker.html" class="text-subtle hover:text-main">&larr; Previous</a>
-            <a href="./index.html" class="font-bold text-main hover:underline">Back to Portfolio</a>
-            <a href="./freelancer-wfh-dashboard.html" class="text-subtle hover:text-main">Next &rarr;</a>
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="./index.html" class="text-lg font-semibold text-subtle hover:text-main transition duration-300">&larr; Back to Portfolio</a>
+            <div class="flex space-x-4">
+                <a href="./spending-savings-tracker.html" class="text-subtle hover:text-main transition duration-300">Previous</a>
+                <span class="text-subtle">|</span>
+                <a href="./personal-goal-tracker.html" class="text-subtle hover:text-main transition duration-300">Next</a>
+            </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 md:px-6 py-12">
-        <div class="text-center mb-10">
-            <h1 class="text-3xl md:text-4xl font-bold text-main mb-2">DIY Projects Tracker</h1>
-            <p class="text-lg text-subtle max-w-3xl mx-auto">A versatile system to manage the budget, finances, and tasks for home renovations or side businesses.</p>
-        </div>
+    <main class="py-16">
+        <div class="container mx-auto px-6 max-w-5xl">
 
-        <!-- HTML Mockup of the Tracker -->
-        <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-4 md:p-8 border border-cool-accent/50">
-            <!-- KPI Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Total Funds In</p>
-                    <p class="text-2xl font-bold text-main">$5,000</p>
-                </div>
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Total Project Spending</p>
-                    <p class="text-2xl font-bold text-main">$3,150</p>
-                </div>
-                <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30 text-center">
-                    <p class="text-sm text-subtle">Net Position</p>
-                    <p class="text-2xl font-bold text-green-700">$1,850</p>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-main text-center">Meet Maria: The Home Renovator</h2>
+                <p class="mt-4 text-lg text-subtle text-center max-w-3xl mx-auto">Maria is renovating an apartment in Montego Bay to rent out. She has a strict budget and a timeline, but she's struggling to keep track of all the moving parts—contractor payments, material costs, and a long to-do list. She needs a system to manage both the money and the tasks in one place.</p>
+            </section>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-main text-center mb-8">The Solution: A Central Hub for Your Project</h3>
+                <p class="text-subtle text-center mb-10">The DIY Projects Tracker is built for Maria. It combines financial tracking with a simple task list, giving her a complete command center to keep her renovation on budget and on schedule.</p>
+                
+                <!-- How It Works Section -->
+                <section class="my-12">
+                    <h3 class="text-2xl font-bold text-main text-center mb-4">How It Works: A Simple Process</h3>
+                    <p class="text-center text-subtle max-w-2xl mx-auto mb-10">The power of the dashboard lies in its simple, automated workflow. A consistent habit of logging transactions is all it takes to maintain a clear, real-time view of your entire financial picture.</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-center">
+                        <div class="p-4">
+                            <p class="text-accent-warm font-bold text-xl">1. Set Goals</p>
+                            <p class="mt-2 text-subtle">Define your project scope and tasks.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-accent-warm hidden md:block">&rarr;</div>
+                        <div class="p-4">
+                            <p class="text-accent-warm font-bold text-xl">2. Log Transactions</p>
+                            <p class="mt-2 text-subtle">Record your project income and spending.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-accent-warm hidden md:block">&rarr;</div>
+                        <div class="p-4">
+                            <p class="text-accent-warm font-bold text-xl">3. See Progress</p>
+                            <p class="mt-2 text-subtle">Watch your dashboard update automatically.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="max-w-4xl mx-auto border rounded-xl p-4">
+                    <header class="border-b pb-4 mb-6"><h1 class="text-2xl font-bold text-teal-dark">DIY Projects Tracker</h1></header>
+                    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-teal-dark text-white p-4 rounded-lg shadow text-center"><h2 class="font-semibold">Total Funds In</h2><p class="text-2xl font-bold">$15,000</p></div>
+                        <div class="bg-white border p-4 rounded-lg shadow text-center"><h2 class="font-semibold">Spending</h2><p class="text-2xl font-bold text-red-600">$8,500</p></div>
+                        <div class="bg-white border p-4 rounded-lg shadow text-center"><h2 class="font-semibold">Net Position</h2><p class="text-2xl font-bold text-teal-dark">$6,500</p></div>
+                    </section>
+                    <section class="bg-gray-50 p-4 rounded-lg border mb-6"><h3 class="font-bold text-teal-dark mb-2">Project Task List</h3><table class="w-full text-sm"><thead><tr class="border-b"><th class="p-2 font-semibold text-left">Task</th><th class="p-2 font-semibold text-center">Status</th></tr></thead><tbody><tr><td class="p-2">Purchase materials</td><td class="p-2 text-center"><span class="status-tag bg-yellow-100 text-yellow-800">In Progress</span></td></tr><tr><td class="p-2">Schedule inspection</td><td class="p-2 text-center"><span class="status-tag bg-gray-200 text-gray-800">Not Started</span></td></tr></tbody></table></section>
+                    <section class="bg-gray-50 p-4 rounded-lg border"><h3 class="font-bold text-teal-dark mb-2 text-center">Spending by Category</h3><div class="max-w-xs mx-auto"><canvas id="projectSpendingChart"></canvas></div></section>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-                <!-- Left Column: Task List -->
-                <div>
-                    <h3 class="text-xl font-bold text-main mb-4">Project Task List</h3>
-                    <div class="overflow-x-auto bg-base/50 rounded-lg border border-cool-accent/30">
-                        <table class="w-full text-left text-sm">
-                            <thead class="border-b border-cool-accent/30 text-subtle">
-                                <tr>
-                                    <th class="p-3">Task</th>
-                                    <th class="p-3">Status</th>
-                                    <th class="p-3">Due Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b border-cool-accent/20">
-                                    <td class="p-3 font-medium">Finalize Kitchen Layout</td>
-                                    <td class="p-3"><span class="px-2 py-1 text-xs font-semibold rounded-full status-completed">Completed</span></td>
-                                    <td class="p-3 text-subtle">Aug 15, 2025</td>
-                                </tr>
-                                <tr class="border-b border-cool-accent/20">
-                                    <td class="p-3 font-medium">Order Cabinets & Countertops</td>
-                                    <td class="p-3"><span class="px-2 py-1 text-xs font-semibold rounded-full status-inprogress">In Progress</span></td>
-                                    <td class="p-3 text-subtle">Aug 25, 2025</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-medium">Schedule Electrician</td>
-                                    <td class="p-3"><span class="px-2 py-1 text-xs font-semibold rounded-full status-notstarted">Not Started</span></td>
-                                    <td class="p-3 text-subtle">Sep 05, 2025</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Right Column: Charts -->
-                <div class="space-y-8">
-                    <!-- Spending Breakdown Chart -->
-                    <div>
-                        <h3 class="text-xl font-bold text-main mb-4">Spending Breakdown</h3>
-                        <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30">
-                            <div class="w-32 h-32 mx-auto my-2 rounded-full" style="background-image: conic-gradient(#dcb482 0% 60%, #b9b99d 60% 85%, #858480 85% 100%);"></div>
-                            <div class="text-xs text-center space-y-1">
-                                <p><span class="inline-block w-2.5 h-2.5 rounded-full mr-2" style="background-color: #dcb482;"></span>Materials: 60%</p>
-                                <p><span class="inline-block w-2.5 h-2.5 rounded-full mr-2" style="background-color: #b9b99d;"></span>Labor: 25%</p>
-                                <p><span class="inline-block w-2.5 h-2.5 rounded-full mr-2" style="background-color: #858480;"></span>Tools: 15%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Funds In vs Spending -->
-                    <div>
-                         <h3 class="text-xl font-bold text-main mb-4">Funds In vs. Spending</h3>
-                        <div class="bg-base/50 p-4 rounded-lg border border-cool-accent/30">
-                           <div class="flex justify-around items-end h-32">
-                               <div class="text-center">
-                                   <div class="w-12 bg-warm-accent rounded-t" style="height: 100%;"></div>
-                                   <p class="text-xs mt-1">Funds In</p>
-                               </div>
-                               <div class="text-center">
-                                   <div class="w-12 bg-cool-accent rounded-t" style="height: 63%;"></div>
-                                   <p class="text-xs mt-1">Spending</p>
-                               </div>
-                           </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
+    
+    <footer class="py-10 mt-12">
+        <div class="container mx-auto px-6 text-center text-subtle">
+            <p>&copy; 2025 Laura Clarke. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        new Chart(document.getElementById('projectSpendingChart'), { type: 'doughnut', data: { labels: ['Materials', 'Labor', 'Permits', 'Tools'], datasets: [{ data: [4500, 3000, 500, 500], backgroundColor: ['#004D40', '#00796B', '#4DB6AC', '#B2DFDB'] }] }, options: { responsive: true, plugins: { legend: { position: 'bottom' } } } });
+    </script>
 
 </body>
 </html>
