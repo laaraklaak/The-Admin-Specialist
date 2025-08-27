@@ -3,280 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Clarke Solutions | Custom Dashboards for Clarity & Control</title>
+    <title>Laura Clarke Solutions | Financial & Organizational Dashboards for Jamaicans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Japandi-inspired Color Palette */
         :root {
-            --bg-base: #f3f0e8;
-            --text-main: #5e5e5e;
-            --text-subtle: #858480;
-            --accent-warm: #dcb482;
-            --accent-cool: #b9b99d;
+            --base-bg: #f3f0e8; /* Light Off-White */
+            --main-text: #5e5e5e; /* Dark Charcoal */
+            --subtle-text: #858480; /* Lighter Grey */
+            --warm-accent: #dcb482; /* Warm Ochre */
+            --cool-accent: #b9b99d; /* Sage Green */
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background-color: var(--base-bg);
+            color: var(--main-text);
         }
-       .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0ddd5;
-        }
-        header.logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--text-main);
-        }
-        nav a {
-            color: var(--text-subtle);
-            text-decoration: none;
-            margin-left: 25px;
+        .warm-accent-bg { background-color: var(--warm-accent); }
+        .warm-accent-text { color: var(--warm-accent); }
+        .warm-accent-border { border-color: var(--warm-accent); }
+        .cool-accent-bg { background-color: var(--cool-accent); }
+        .cool-accent-text { color: var(--cool-accent); }
+        .cool-accent-border { border-color: var(--cool-accent); }
+        .subtle-text { color: var(--subtle-text); }
+        .main-text { color: var(--main-text); }
+        .base-bg { background-color: var(--base-bg); }
+        h1, h2, h3 {
             font-weight: 600;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: var(--accent-warm);
-        }
-       .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
-       .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-       .hero p {
-            font-size: 1.2rem;
-            color: var(--text-subtle);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-       .solutions-showcase {
-            padding: 60px 0;
-        }
-       .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-       .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-       .solution-card {
-            background-color: #fff;
-            border: 1px solid #e0ddd5;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-       .solution-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-       .solution-card h3 {
-            font-size: 1.3rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-       .mini-mockup {
-            background-color: var(--bg-base);
-            border: 1px solid #e0ddd5;
-            border-radius: 6px;
-            padding: 20px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-       .mockup-content {
-            width: 100%;
-        }
-       .kpi {
-            font-size: 0.8rem;
-            font-weight: 600;
-            background-color: #fff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-       .progress-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #e0ddd5;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-       .progress {
-            width: 65%;
-            height: 100%;
-            background-color: var(--accent-cool);
-        }
-       .pie-chart {
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            background-image: conic-gradient(var(--accent-cool) 0% 40%, var(--accent-warm) 40% 75%, #ccc 75% 100%);
-            margin: 0 auto;
-        }
-       .btn {
-            display: inline-block;
-            background-color: var(--accent-warm);
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-       .btn:hover {
-            background-color: #c9a270;
-        }
-       .other-services {
-            padding: 60px 0;
-            background-color: #fff;
-            border-top: 1px solid #e0ddd5;
-            border-bottom: 1px solid #e0ddd5;
-        }
-       .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-       .service-item h3 {
-            color: var(--accent-warm);
-        }
-       .cta-section {
-            text-align: center;
-            padding: 80px 20px;
-        }
-       .cta-section h2 {
-            font-size: 2.2rem;
-        }
-       .cta-section p {
-            color: var(--text-subtle);
-            margin-bottom: 30px;
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: var(--text-subtle);
-        }
-        @media (max-width: 768px) {
-           .hero h1 { font-size: 2.5rem; }
-           .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <header class="container">
-        <div class="logo">Laura Clarke Solutions</div>
-        <nav>
-            <a href="#solutions">Solutions</a>
-            <a href="#services">Services</a>
-            <a href="assessment.html">Get Started</a>
-        </nav>
+    <!-- Header -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold main-text">Laura Clarke Solutions</h1>
+            <nav>
+                <a href="assessment.html" class="warm-accent-bg text-white font-semibold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">Start Assessment</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Bring Clarity to Your Money and Your Goals.</h1>
-            <p>Simple, custom dashboards designed for busy Jamaicans. Stop feeling overwhelmed and start taking control of your finances and projects, one simple step at a time.</p>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-5xl font-bold main-text max-w-3xl mx-auto leading-tight">Finally, a clear view of your money and goals.</h2>
+            <p class="mt-4 text-lg subtle-text max-w-2xl mx-auto">Custom dashboards designed for Jamaicans. Stop feeling overwhelmed and start making progress on what matters most, whether you're saving for a car, managing a side hustle, or planning your future.</p>
         </section>
 
-        <section id="solutions" class="solutions-showcase container">
-            <h2 class="section-title">Solutions for Your Everyday "Headaches"</h2>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <h3>For when you wonder where your money goes each month.</h3>
-                    <div class="mini-mockup">
-                        <div class="mockup-content" style="display: flex; align-items: center; gap: 15px;">
-                            <div class="pie-chart"></div>
-                            <div style="text-align: left; flex-grow: 1;">
-                                <div class="kpi" style="font-size: 0.7rem; padding: 4px 8px;">Groceries: 35%</div>
-                                <div class="kpi" style="font-size: 0.7rem; padding: 4px 8px;">Transport: 20%</div>
-                                <div class="kpi" style="font-size: 0.7rem; padding: 4px 8px;">Bills: 25%</div>
-                            </div>
+        <!-- Solutions Showcase -->
+        <section>
+            <h3 class="text-3xl font-bold main-text text-center mb-10">Your Personal Command Centre</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1: Spending & Savings Tracker -->
+                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
+                    <h4 class="text-xl font-semibold main-text mb-2">For when you need to know where every dollar is going.</h4>
+                    <p class="subtle-text text-sm mb-4">Perfect for managing daily expenses, tracking debt repayment, and building your savings without the headache.</p>
+                    <!-- Mini Mockup -->
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 flex-grow mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold cool-accent-text">Monthly Savings</span>
+                            <span class="text-xs font-bold text-green-600">+ J$15,000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                            <div class="cool-accent-bg h-2.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs subtle-text">
+                            <span>Income: J$150k</span>
+                            <span>Expenses: J$135k</span>
+                        </div>
+                        <div class="mt-4 border-t pt-3 flex justify-between items-center">
+                             <span class="text-xs font-bold cool-accent-text">Top Expense</span>
+                             <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Groceries</span>
                         </div>
                     </div>
-                    <a href="spending-savings-tracker.html" class="btn">View Details & Scenario</a>
+                    <a href="spending-savings-tracker.html" class="text-center w-full warm-accent-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity">View Details & Scenario</a>
                 </div>
 
-                <div class="solution-card">
-                    <h3>For when you're saving for a car, a house, or your next big goal.</h3>
-                    <div class="mini-mockup">
-                        <div class="mockup-content">
-                            <div class="kpi">Goal: New Car</div>
-                            <div class="kpi" style="font-size: 0.7rem; margin-bottom: 15px;">$950,000 / $1,500,000</div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 63%;"></div>
-                            </div>
+                <!-- Card 2: Personal Goal Tracker -->
+                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
+                    <h4 class="text-xl font-semibold main-text mb-2">For when you're saving for something big.</h4>
+                    <p class="subtle-text text-sm mb-4">Whether it's a down payment on a house, a new car, or your children's education fund, see your progress in real-time.</p>
+                    <!-- Mini Mockup -->
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 flex-grow mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold warm-accent-text">Car Fund Goal</span>
+                            <span class="text-xs font-bold text-gray-700">J$1.2M / J$2.5M</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                            <div class="warm-accent-bg h-2.5 rounded-full" style="width: 48%"></div>
+                        </div>
+                         <div class="flex justify-between text-xs subtle-text">
+                            <span>Target: Dec 2026</span>
+                            <span>48% Complete</span>
+                        </div>
+                        <div class="mt-4 border-t pt-3 flex justify-between items-center">
+                             <span class="text-xs font-bold warm-accent-text">Months Left</span>
+                             <span class="text-lg font-bold main-text">30</span>
                         </div>
                     </div>
-                    <a href="personal-goal-tracker.html" class="btn">View Details & Scenario</a>
+                    <a href="personal-goal-tracker.html" class="text-center w-full warm-accent-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity">View Details & Scenario</a>
                 </div>
 
-                <div class="solution-card">
-                    <h3>For when you're juggling clients, invoices, and business expenses.</h3>
-                    <div class="mini-mockup">
-                         <div class="mockup-content">
-                            <div class="kpi">Monthly Income: $150,000</div>
-                            <div class="kpi">Expenses: $25,000</div>
-                            <div class="kpi" style="background-color: var(--accent-cool); color: white;">Net Profit: $125,000</div>
+                <!-- Card 3: Freelancer / WFH Dashboard -->
+                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
+                    <h4 class="text-xl font-semibold main-text mb-2">For when your side hustle becomes your main focus.</h4>
+                    <p class="subtle-text text-sm mb-4">Track multiple income streams, manage client projects, and monitor your business's financial health all in one place.</p>
+                    <!-- Mini Mockup -->
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 flex-grow mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold cool-accent-text">Quarterly Profit</span>
+                            <span class="text-xs font-bold text-green-600">J$250,000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                            <div class="cool-accent-bg h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs subtle-text">
+                            <span>Invoices Paid: 8</span>
+                            <span>Pending: 2</span>
+                        </div>
+                        <div class="mt-4 border-t pt-3 flex justify-between items-center">
+                             <span class="text-xs font-bold cool-accent-text">Active Projects</span>
+                             <span class="text-lg font-bold main-text">4</span>
                         </div>
                     </div>
-                    <a href="freelancer-wfh-dashboard.html" class="btn">View Details & Scenario</a>
+                    <a href="freelancer-wfh-dashboard.html" class="text-center w-full warm-accent-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity">View Details & Scenario</a>
                 </div>
+
             </div>
         </section>
 
-        <section id="services" class="other-services">
-            <div class="container">
-                <h2 class="section-title">Additional Support Services</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Financial Organization Consultation</h3>
-                        <p>Feeling stuck? Let's have a one-on-one chat. We can review your current situation and build a practical, step-by-step plan to get your financial life in order, whether it's for your home or your small business.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Editorial & Admin Services</h3>
-                        <p>Need a professional touch for your documents? I provide proofreading, editing, and general administrative support to help you present your best work, from business proposals to official correspondence.</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Additional Services -->
+        <section class="mt-16 md:mt-24 text-center">
+             <h3 class="text-3xl font-bold main-text text-center mb-10">Need Something More?</h3>
+             <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div class="bg-white/50 p-8 rounded-xl shadow-sm border border-gray-200">
+                     <h4 class="text-xl font-semibold main-text mb-2">1-on-1 Consultation</h4>
+                     <p class="subtle-text">Let's work together to build a completely custom solution tailored to your unique financial or business needs.</p>
+                 </div>
+                 <div class="bg-white/50 p-8 rounded-xl shadow-sm border border-gray-200">
+                     <h4 class="text-xl font-semibold main-text mb-2">Editorial Services</h4>
+                     <p class="subtle-text">Need help crafting the perfect business plan or proposal? I offer professional writing and editing services.</p>
+                 </div>
+             </div>
         </section>
 
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Feel in Control?</h2>
-                <p>Let's build a solution that works for you. Fill out a short form, and I'll get in touch to schedule a free, no-pressure consultation.</p>
-                <a href="assessment.html" class="btn">Start My Assessment</a>
-            </div>
-        </section>
     </main>
 
-    <footer>
-        <div class="container">
-            &copy; 2025 Laura Clarke Solutions | Kingston, Jamaica
+    <!-- Footer -->
+    <footer class="mt-16 md:mt-24 py-8 border-t cool-accent-border">
+        <div class="container mx-auto text-center subtle-text">
+            <p>&copy; 2024 Laura Clarke Solutions. All Rights Reserved.</p>
+            <p class="text-sm mt-1">Designed to bring clarity to your goals.</p>
         </div>
     </footer>
 
