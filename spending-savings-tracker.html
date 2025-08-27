@@ -4,234 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spending & Savings Tracker | Laura Clarke Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* Japandi-inspired Color Palette */
         :root {
-            --bg-base: #f3f0e8;
-            --text-main: #5e5e5e;
-            --text-subtle: #858480;
-            --accent-warm: #dcb482;
-            --accent-cool: #b9b99d;
+            --base-bg: #f3f0e8; /* Light Off-White */
+            --main-text: #5e5e5e; /* Dark Charcoal */
+            --subtle-text: #858480; /* Lighter Grey */
+            --warm-accent: #dcb482; /* Warm Ochre */
+            --cool-accent: #b9b99d; /* Sage Green */
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background-color: var(--base-bg);
+            color: var(--main-text);
         }
-       .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-       .project-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0ddd5;
-            margin-bottom: 40px;
-        }
-       .project-nav a {
-            color: var(--text-subtle);
-            text-decoration: none;
+        .warm-accent-bg { background-color: var(--warm-accent); }
+        .warm-accent-text { color: var(--warm-accent); }
+        .cool-accent-bg { background-color: var(--cool-accent); }
+        .cool-accent-text { color: var(--cool-accent); }
+        .subtle-text { color: var(--subtle-text); }
+        .main-text { color: var(--main-text); }
+        h1, h2, h3, h4 {
             font-weight: 600;
-            padding: 8px 15px;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-       .project-nav a:hover {
-            color: var(--accent-warm);
-            border-color: var(--accent-warm);
-        }
-       .project-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-       .project-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-       .project-header p {
-            font-size: 1.1rem;
-            color: var(--text-subtle);
-        }
-       .project-section {
-            margin-bottom: 50px;
-        }
-       .project-section h2 {
-            font-size: 1.5rem;
-            color: var(--accent-warm);
-            border-bottom: 2px solid var(--accent-cool);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-       .scenario-box {
-            background-color: #fff;
-            border-left: 4px solid var(--accent-cool);
-            padding: 20px;
-            border-radius: 0 5px 5px 0;
-            font-style: italic;
-        }
-       .how-it-works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-       .step.icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-       .step h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-       .full-mockup {
-            background-color: #fff;
-            border: 1px solid #e0ddd5;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-       .mockup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-       .mockup-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-       .kpi-item {
-            background-color: var(--bg-base);
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
-        }
-       .kpi-item.label {
-            font-size: 0.9rem;
-            color: var(--text-subtle);
-        }
-       .kpi-item.value {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-       .mockup-pie-chart {
-            width: 150px; height: 150px;
-            border-radius: 50%;
-            background-image: conic-gradient(var(--accent-cool) 0% 35%, var(--accent-warm) 35% 60%, #858480 60% 85%, #ccc 85% 100%);
-            margin: 20px auto;
-        }
-       .legend { list-style: none; padding: 0; }
-       .legend li { margin-bottom: 8px; display: flex; align-items: center; }
-       .legend span { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 10px; }
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: var(--text-subtle);
-        }
-         @media (max-width: 600px) {
-           .mockup-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <div class="container">
-        <nav class="project-nav">
-            <a href="personal-goal-tracker.html">&larr; Previous</a>
-            <a href="index.html#solutions">Back to Solutions</a>
-            <a href="diy-projects-tracker.html">Next &rarr;</a>
-        </nav>
+    <!-- Header & Navigation -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold main-text">Laura Clarke Solutions</a>
+            <nav class="flex items-center space-x-4">
+                <a href="personal-goal-tracker.html" class="subtle-text hover:main-text transition-colors text-sm">Previous</a>
+                <a href="index.html" class="warm-accent-bg text-white font-semibold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity text-sm">Back to Portfolio</a>
+                <a href="diy-projects-tracker.html" class="subtle-text hover:main-text transition-colors text-sm">Next</a>
+            </nav>
+        </div>
+    </header>
 
-        <main>
-            <header class="project-header">
-                <h1>Spending & Savings Tracker</h1>
-                <p>Finally understand where your money is going each month.</p>
-            </header>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-            <section class="project-section">
-                <h2>The Scenario</h2>
-                <div class="scenario-box">
-                    <p>"David from Portmore has a steady job, but at the end of every month, he feels like his money just disappears. He wants to save more and get ahead, but he has no idea where to cut back because he doesn't know where his money is actually being spent. The thought of manually tracking every dollar is overwhelming."</p>
+        <!-- Project Header -->
+        <section class="text-center mb-12">
+            <h2 class="text-4xl font-bold main-text">The Spending & Savings Tracker</h2>
+            <p class="mt-3 text-lg subtle-text max-w-2xl mx-auto">For when you need to know exactly where your money is going, every month.</p>
+        </section>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Left Column: Story -->
+            <div class="md:col-span-1">
+                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 sticky top-8">
+                    <h3 class="text-xl font-semibold main-text mb-3 border-b pb-2">The Scenario</h3>
+                    <p class="subtle-text text-sm mb-4">
+                        <strong>Meet David from Portmore.</strong> He's a young professional with a steady job, but at the end of the month, he's always surprised by how little is left in his account. He wants to start saving seriously for a down payment and pay down a small car loan faster.
+                    </p>
+                    <p class="subtle-text text-sm">
+                        He tries to keep track in his head, but the small purchases—a patty here, a box lunch there, a top-up for his phone—add up faster than he realizes. He feels like he's working hard but not getting ahead.
+                    </p>
+                    <h4 class="text-lg font-semibold cool-accent-text mt-6 mb-2">The Headache:</h4>
+                    <p class="main-text font-medium">"Where did all my money go this month?"</p>
                 </div>
-            </section>
+            </div>
 
-            <section class="project-section">
-                <h2>The Solution</h2>
-                <p>The Spending & Savings Tracker is a simple dashboard that does the hard work for David. By logging his expenses into clear categories, the tracker automatically shows him his spending habits at a glance. He can instantly see how much is going to groceries, transport, bills, and entertainment, making it easy to spot areas where he can save and take control of his budget.</p>
-            </section>
-            
-            <section class="project-section">
-                <h2>How It Works</h2>
-                <div class="how-it-works-grid">
-                    <div class="step">
-                        <div class="icon">🧾</div>
-                        <h3>1. Log Your Spending</h3>
-                        <p>Quickly enter your expenses and assign them to simple categories like 'Food' or 'Bills'.</p>
-                    </div>
-                    <div class="step">
-                        <div class="icon">📊</div>
-                        <h3>2. See Your Habits</h3>
-                        <p>The dashboard automatically creates charts showing your spending breakdown.</p>
-                    </div>
-                    <div class="step">
-                        <div class="icon">💡</div>
-                        <h3>3. Find Savings</h3>
-                        <p>Easily identify where you can cut back to meet your savings goals faster.</p>
-                    </div>
+            <!-- Right Column: Solution & Mockup -->
+            <div class="md:col-span-2">
+                <!-- The Solution -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-semibold main-text mb-3">The Solution: A Simple, Honest Look at Your Habits</h3>
+                    <p class="subtle-text mb-4">This dashboard gives David the clarity he's missing. Instead of guessing, he can see a simple, visual breakdown of his spending. The pie chart instantly shows him that "Food & Dining" is his biggest expense category, which is the insight he needs to make a change.</p>
+                    <p class="subtle-text">By logging transactions as they happen, he can finally create a realistic budget, identify areas to cut back, and confidently allocate more money toward his savings and debt repayment goals. It's about taking control, not feeling restricted.</p>
                 </div>
-            </section>
 
-            <section class="project-section">
-                <h2>The Dashboard in Action</h2>
-                <div class="full-mockup">
-                    <div class="mockup-header">
-                        <h3 style="margin: 0;">David's Monthly Budget</h3>
-                        <span style="color: var(--text-subtle); font-weight: 600;">August 2025</span>
-                    </div>
-                    <hr style="border: 0; border-top: 1px solid #e0ddd5; margin: 15px 0;">
-                    <div class="mockup-grid">
-                        <div>
-                            <div class="kpi-item" style="margin-bottom: 20px;">
-                                <div class="label">Total Income</div>
-                                <div class="value" style="color: var(--accent-cool);">$180,000</div>
+                <!-- How It Works -->
+                 <div class="mb-12">
+                     <h3 class="text-2xl font-semibold main-text mb-4">How It Works</h3>
+                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                         <div class="bg-white/50 p-4 rounded-lg border border-gray-200">
+                            <div class="cool-accent-bg text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">1</div>
+                            <p class="font-semibold main-text">Set Your Budget</p>
+                         </div>
+                         <div class="bg-white/50 p-4 rounded-lg border border-gray-200">
+                             <div class="cool-accent-bg text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">2</div>
+                            <p class="font-semibold main-text">Log Transactions</p>
+                         </div>
+                         <div class="bg-white/50 p-4 rounded-lg border border-gray-200">
+                             <div class="cool-accent-bg text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">3</div>
+                            <p class="font-semibold main-text">See Your Habits</p>
+                         </div>
+                     </div>
+                </div>
+
+
+                <!-- Full Visual Mockup -->
+                <div>
+                    <h3 class="text-2xl font-semibold main-text mb-4">The Final Dashboard</h3>
+                    <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200">
+                        <!-- Dashboard Header -->
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 mb-4">
+                            <div>
+                                <h4 class="text-2xl font-bold main-text">Monthly Budget: June 2024</h4>
+                                <p class="subtle-text">David's Financial Overview</p>
                             </div>
-                            <div class="kpi-item">
-                                <div class="label">Total Spent</div>
-                                <div class="value" style="color: var(--accent-warm);">$155,500</div>
+                            <div class="mt-2 sm:mt-0 text-sm sm:text-right">
+                                <p class="subtle-text">Net Position</p>
+                                <p class="font-semibold text-green-600 text-lg">+ J$15,000</p>
                             </div>
                         </div>
-                        <div>
-                            <h4 style="text-align: center; margin-top: 0;">Spending by Category</h4>
-                            <div class="mockup-pie-chart"></div>
-                            <ul class="legend">
-                                <li><span style="background-color: var(--accent-cool);"></span> Groceries & Food (35%)</li>
-                                <li><span style="background-color: var(--accent-warm);"></span> Transport (25%)</li>
-                                <li><span style="background-color: #858480;"></span> Bills & Utilities (25%)</li>
-                                <li><span style="background-color: #ccc;"></span> Entertainment (15%)</li>
-                            </ul>
+
+                        <!-- KPIs -->
+                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-base-bg/60 p-4 rounded-lg">
+                                <p class="text-sm subtle-text">Total Income</p>
+                                <p class="text-2xl font-bold text-green-600">J$150,000</p>
+                            </div>
+                            <div class="bg-base-bg/60 p-4 rounded-lg">
+                                <p class="text-sm subtle-text">Total Expenses</p>
+                                <p class="text-2xl font-bold text-red-600">J$135,000</p>
+                            </div>
+                            <div class="bg-base-bg/60 p-4 rounded-lg col-span-2 lg:col-span-1">
+                                <p class="text-sm subtle-text">Amount Saved</p>
+                                <p class="text-2xl font-bold cool-accent-text">J$15,000</p>
+                            </div>
+                        </div>
+
+                        <!-- Chart and Recent Transactions -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <!-- Expense Breakdown Chart -->
+                            <div>
+                                <h5 class="text-lg font-semibold main-text mb-2">Expense Breakdown</h5>
+                                <div class="bg-base-bg/60 p-4 rounded-lg h-64 flex items-center justify-center">
+                                    <canvas id="expenseChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- Recent Transactions Table -->
+                            <div>
+                                <h5 class="text-lg font-semibold main-text mb-2">Recent Transactions</h5>
+                                <div class="overflow-y-auto h-64">
+                                    <table class="w-full text-left">
+                                        <tbody>
+                                            <tr class="border-b">
+                                                <td class="py-3 px-2">
+                                                    <p class="font-medium">KFC</p>
+                                                    <p class="text-xs subtle-text">Food & Dining</p>
+                                                </td>
+                                                <td class="py-3 px-2 text-right font-medium text-red-500">- J$2,500</td>
+                                            </tr>
+                                            <tr class="border-b">
+                                                <td class="py-3 px-2">
+                                                    <p class="font-medium">JPS Bill</p>
+                                                    <p class="text-xs subtle-text">Utilities</p>
+                                                </td>
+                                                <td class="py-3 px-2 text-right font-medium text-red-500">- J$8,000</td>
+                                            </tr>
+                                            <tr class="border-b">
+                                                <td class="py-3 px-2">
+                                                    <p class="font-medium">Salary</p>
+                                                    <p class="text-xs subtle-text">Income</p>
+                                                </td>
+                                                <td class="py-3 px-2 text-right font-medium text-green-600">+ J$150,000</td>
+                                            </tr>
+                                            <tr class="border-b">
+                                                <td class="py-3 px-2">
+                                                    <p class="font-medium">Total Gas Station</p>
+                                                    <p class="text-xs subtle-text">Transportation</p>
+                                                </td>
+                                                <td class="py-3 px-2 text-right font-medium text-red-500">- J$5,000</td>
+                                            </tr>
+                                             <tr>
+                                                <td class="py-3 px-2">
+                                                    <p class="font-medium">Progressive Grocers</p>
+                                                    <p class="text-xs subtle-text">Groceries</p>
+                                                </td>
+                                                <td class="py-3 px-2 text-right font-medium text-red-500">- J$15,000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
-    
-    <footer>
-        <div class="container">
-            &copy; 2025 Laura Clarke Solutions | Kingston, Jamaica
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 py-8 border-t cool-accent-border">
+        <div class="container mx-auto text-center subtle-text">
+            <p>&copy; 2024 Laura Clarke Solutions. All Rights Reserved.</p>
         </div>
     </footer>
-
+    <script>
+        const ctx = document.getElementById('expenseChart').getContext('2d');
+        const expenseChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Groceries', 'Utilities', 'Transportation', 'Food & Dining', 'Loan'],
+                datasets: [{
+                    label: 'Expense Breakdown',
+                    data: [45000, 25000, 20000, 30000, 15000],
+                    backgroundColor: [
+                        '#b9b99d', // Sage Green
+                        '#dcb482', // Warm Ochre
+                        '#858480', // Lighter Grey
+                        '#a9a9a9',
+                        '#c0c0c0'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: "'Inter', sans-serif"
+                            },
+                            color: '#5e5e5e',
+                            boxWidth: 15,
+                            padding: 15
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+    </script>
 </body>
 </html>
