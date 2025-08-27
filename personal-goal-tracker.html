@@ -4,244 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Goal Tracker | Laura Clarke Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Japandi-inspired Color Palette */
         :root {
-            --bg-base: #f3f0e8;
-            --text-main: #5e5e5e;
-            --text-subtle: #858480;
-            --accent-warm: #dcb482;
-            --accent-cool: #b9b99d;
+            --base-bg: #f3f0e8; /* Light Off-White */
+            --main-text: #5e5e5e; /* Dark Charcoal */
+            --subtle-text: #858480; /* Lighter Grey */
+            --warm-accent: #dcb482; /* Warm Ochre */
+            --cool-accent: #b9b99d; /* Sage Green */
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background-color: var(--base-bg);
+            color: var(--main-text);
         }
-       .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-       .project-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0ddd5;
-            margin-bottom: 40px;
-        }
-       .project-nav a {
-            color: var(--text-subtle);
-            text-decoration: none;
+        .warm-accent-bg { background-color: var(--warm-accent); }
+        .warm-accent-text { color: var(--warm-accent); }
+        .warm-accent-border { border-color: var(--warm-accent); }
+        .cool-accent-bg { background-color: var(--cool-accent); }
+        .cool-accent-text { color: var(--cool-accent); }
+        .cool-accent-border { border-color: var(--cool-accent); }
+        .subtle-text { color: var(--subtle-text); }
+        .main-text { color: var(--main-text); }
+        .base-bg { background-color: var(--base-bg); }
+        h1, h2, h3, h4 {
             font-weight: 600;
-            padding: 8px 15px;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-       .project-nav a:hover {
-            color: var(--accent-warm);
-            border-color: var(--accent-warm);
-        }
-       .project-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-       .project-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-       .project-header p {
-            font-size: 1.1rem;
-            color: var(--text-subtle);
-        }
-       .project-section {
-            margin-bottom: 50px;
-        }
-       .project-section h2 {
-            font-size: 1.5rem;
-            color: var(--accent-warm);
-            border-bottom: 2px solid var(--accent-cool);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-       .scenario-box {
-            background-color: #fff;
-            border-left: 4px solid var(--accent-cool);
-            padding: 20px;
-            border-radius: 0 5px 5px 0;
-            font-style: italic;
-        }
-       .how-it-works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-       .step.icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-       .step h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-       .full-mockup {
-            background-color: #fff;
-            border: 1px solid #e0ddd5;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-       .mockup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-       .mockup-kpis {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-       .kpi-item {
-            background-color: var(--bg-base);
-            padding: 15px;
-            border-radius: 6px;
-        }
-       .kpi-item.label {
-            font-size: 0.9rem;
-            color: var(--text-subtle);
-        }
-       .kpi-item.value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-       .mockup-progress-bar {
-            width: 100%;
-            height: 25px;
-            background-color: #e0ddd5;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-       .mockup-progress {
-            width: 63%;
-            height: 100%;
-            background-color: var(--accent-cool);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-       .progress-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--text-subtle);
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: var(--text-subtle);
         }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <div class="container">
-        <nav class="project-nav">
-            <a href="freelancer-wfh-dashboard.html">&larr; Previous</a>
-            <a href="index.html#solutions">Back to Solutions</a>
-            <a href="spending-savings-tracker.html">Next &rarr;</a>
-        </nav>
+    <!-- Header & Navigation -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold main-text">Laura Clarke Solutions</a>
+            <nav class="flex items-center space-x-4">
+                <a href="freelancer-wfh-dashboard.html" class="subtle-text hover:main-text transition-colors text-sm">Previous</a>
+                <a href="index.html" class="warm-accent-bg text-white font-semibold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity text-sm">Back to Portfolio</a>
+                <a href="spending-savings-tracker.html" class="subtle-text hover:main-text transition-colors text-sm">Next</a>
+            </nav>
+        </div>
+    </header>
 
-        <main>
-            <header class="project-header">
-                <h1>Personal Goal Tracker</h1>
-                <p>Turn your big dreams into an achievable, step-by-step plan.</p>
-            </header>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-            <section class="project-section">
-                <h2>The Scenario</h2>
-                <div class="scenario-box">
-                    <p>"Anna, a young professional in Kingston, dreams of buying her first car. She saves what she can each month, but without a clear plan, the goal feels distant and sometimes impossible. She isn't sure if she's on track, how far she has to go, or when she might actually reach her goal. This uncertainty is discouraging."</p>
+        <!-- Project Header -->
+        <section class="text-center mb-12">
+            <h2 class="text-4xl font-bold main-text">The Personal Goal Tracker</h2>
+            <p class="mt-3 text-lg subtle-text max-w-2xl mx-auto">For when you have a big dream and need a clear path to get there.</p>
+        </section>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Left Column: Story -->
+            <div class="md:col-span-1">
+                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 sticky top-8">
+                    <h3 class="text-xl font-semibold main-text mb-3 border-b pb-2">The Scenario</h3>
+                    <p class="subtle-text text-sm mb-4">
+                        <strong>Meet Anna from Kingston.</strong> She's a dedicated nurse with a dream of buying her first car. She's been trying to save, but life happens. Between helping her family, monthly bills, and the occasional treat, her savings account isn't growing as fast as she'd hoped.
+                    </p>
+                    <p class="subtle-text text-sm">
+                        She feels a little lost, unsure if she's on track or just spinning her wheels. The goal feels so far away it's hard to stay motivated.
+                    </p>
+                    <h4 class="text-lg font-semibold warm-accent-text mt-6 mb-2">The Headache:</h4>
+                    <p class="main-text font-medium">"Am I actually making progress toward my goal?"</p>
                 </div>
-            </section>
+            </div>
 
-            <section class="project-section">
-                <h2>The Solution</h2>
-                <p>The Personal Goal Tracker is a simple, visual dashboard that transforms Anna's dream into a tangible project. It gives her a single place to see her progress in real-time, providing the motivation and clarity she needs to stay focused. Instead of guessing, she knows exactly where she stands, making her feel empowered and in control of her financial future.</p>
-            </section>
-            
-            <section class="project-section">
-                <h2>How It Works</h2>
-                <div class="how-it-works-grid">
-                    <div class="step">
-                        <div class="icon">🎯</div>
-                        <h3>1. Set Your Goal</h3>
-                        <p>Define what you're saving for, the total amount needed, and your target date.</p>
-                    </div>
-                    <div class="step">
-                        <div class="icon">💰</div>
-                        <h3>2. Log Your Savings</h3>
-                        <p>Easily record every deposit you make towards your goal, whether big or small.</p>
-                    </div>
-                    <div class="step">
-                        <div class="icon">📈</div>
-                        <h3>3. See Your Progress</h3>
-                        <p>Watch your progress bar grow and get a clear, real-time view of how close you are.</p>
+            <!-- Right Column: Solution & Mockup -->
+            <div class="md:col-span-2">
+                <!-- The Solution -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-semibold main-text mb-3">The Solution: A Clear View of the Finish Line</h3>
+                    <p class="subtle-text mb-4">This tracker was designed for Anna. It's not just about numbers; it's about clarity and motivation. By setting a clear goal and target date, she can see exactly how much she needs to save each month. Every deposit feels like a victory because she can instantly see the progress bar move and the "months left" number go down.</p>
+                    <p class="subtle-text">It transforms a vague dream into a concrete, achievable plan, helping her make smarter spending decisions because the reward is right there on the screen.</p>
+                </div>
+
+                <!-- How It Works -->
+                <div class="mb-12">
+                     <h3 class="text-2xl font-semibold main-text mb-4">How It Works</h3>
+                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                         <div class="bg-white/50 p-4 rounded-lg border border-gray-200">
+                            <div class="warm-accent-bg text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">1</div>
+                            <p class="font-semibold main-text">Set Your Goal</p>
+                         </div>
+                         <div class="bg-white/50 p-4 rounded-lg border border-gray-200">
+                             <div class="warm-accent-bg text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">2</div>
+                            <p class="font-semibold main-text">Log Contributions</p>
+                         </div>
+                         <div class="bg-white/50 p-4 rounded-lg border border-gray-200">
+                             <div class="warm-accent-bg text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-2 text-lg font-bold">3</div>
+                            <p class="font-semibold main-text">See Progress</p>
+                         </div>
+                     </div>
+                </div>
+
+                <!-- Full Visual Mockup -->
+                <div>
+                    <h3 class="text-2xl font-semibold main-text mb-4">The Final Dashboard</h3>
+                    <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200">
+                        <!-- Dashboard Header -->
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 mb-4">
+                            <div>
+                                <h4 class="text-2xl font-bold main-text">Anna's Car Fund</h4>
+                                <p class="subtle-text">Goal: Toyota Aqua</p>
+                            </div>
+                            <div class="mt-2 sm:mt-0 text-sm sm:text-right">
+                                <p class="subtle-text">Target Date</p>
+                                <p class="font-semibold main-text">December 31, 2026</p>
+                            </div>
+                        </div>
+
+                        <!-- KPIs -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-base-bg/60 p-4 rounded-lg">
+                                <p class="text-sm subtle-text">Total Goal</p>
+                                <p class="text-2xl font-bold main-text">J$2,500,000</p>
+                            </div>
+                            <div class="bg-base-bg/60 p-4 rounded-lg">
+                                <p class="text-sm subtle-text">Saved So Far</p>
+                                <p class="text-2xl font-bold warm-accent-text">J$1,200,000</p>
+                            </div>
+                            <div class="bg-base-bg/60 p-4 rounded-lg">
+                                <p class="text-sm subtle-text">Remaining</p>
+                                <p class="text-2xl font-bold main-text">J$1,300,000</p>
+                            </div>
+                            <div class="bg-base-bg/60 p-4 rounded-lg">
+                                <p class="text-sm subtle-text">Months Left</p>
+                                <p class="text-2xl font-bold main-text">30</p>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-sm font-semibold warm-accent-text">Progress</span>
+                                <span class="text-sm font-semibold main-text">48%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-4">
+                                <div class="warm-accent-bg h-4 rounded-full" style="width: 48%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Contributions Table -->
+                        <div>
+                            <h5 class="text-lg font-semibold main-text mb-2">Recent Contributions</h5>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead>
+                                        <tr class="border-b">
+                                            <th class="py-2 px-3 text-sm subtle-text font-medium">Date</th>
+                                            <th class="py-2 px-3 text-sm subtle-text font-medium">Amount</th>
+                                            <th class="py-2 px-3 text-sm subtle-text font-medium">Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="py-3 px-3">June 25, 2024</td>
+                                            <td class="py-3 px-3 font-medium text-green-600">+ J$40,000</td>
+                                            <td class="py-3 px-3 subtle-text text-sm">Monthly Salary Savings</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="py-3 px-3">June 15, 2024</td>
+                                            <td class="py-3 px-3 font-medium text-green-600">+ J$15,000</td>
+                                            <td class="py-3 px-3 subtle-text text-sm">Overtime Pay</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3 px-3">May 25, 2024</td>
+                                            <td class="py-3 px-3 font-medium text-green-600">+ J$40,000</td>
+                                            <td class="py-3 px-3 subtle-text text-sm">Monthly Salary Savings</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </main>
 
-            <section class="project-section">
-                <h2>The Dashboard in Action</h2>
-                <div class="full-mockup">
-                    <div class="mockup-header">
-                        <h3 style="margin: 0;">Anna's Car Fund</h3>
-                        <span style="color: var(--text-subtle); font-weight: 600;">Target Date: Dec 2025</span>
-                    </div>
-                    <hr style="border: 0; border-top: 1px solid #e0ddd5; margin: 15px 0;">
-                    <div class="mockup-kpis">
-                        <div class="kpi-item">
-                            <div class="label">Goal Amount</div>
-                            <div class="value">$1,500,000</div>
-                        </div>
-                        <div class="kpi-item">
-                            <div class="label">Amount Saved</div>
-                            <div class="value" style="color: var(--accent-cool);">$950,000</div>
-                        </div>
-                        <div class="kpi-item">
-                            <div class="label">Amount Remaining</div>
-                            <div class="value" style="color: var(--accent-warm);">$550,000</div>
-                        </div>
-                    </div>
-                    <div class="mockup-progress-bar">
-                        <div class="mockup-progress">63%</div>
-                    </div>
-                    <div class="progress-labels">
-                        <span>$0</span>
-                        <span>$1,500,000</span>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-    
-    <footer>
-        <div class="container">
-            &copy; 2025 Laura Clarke Solutions | Kingston, Jamaica
+    <!-- Footer -->
+    <footer class="mt-16 py-8 border-t cool-accent-border">
+        <div class="container mx-auto text-center subtle-text">
+            <p>&copy; 2024 Laura Clarke Solutions. All Rights Reserved.</p>
         </div>
     </footer>
 
