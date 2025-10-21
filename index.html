@@ -3,167 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Clarke Solutions | Financial & Organizational Dashboards for Jamaicans</title>
+    <title>The Document & Resource Hub - Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Japandi-inspired Color Palette */
-        :root {
-            --base-bg: #f3f0e8; /* Light Off-White */
-            --main-text: #5e5e5e; /* Dark Charcoal */
-            --subtle-text: #858480; /* Lighter Grey */
-            --warm-accent: #dcb482; /* Warm Ochre */
-            --cool-accent: #b9b99d; /* Sage Green */
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--base-bg);
-            color: var(--main-text);
-        }
-        .warm-accent-bg { background-color: var(--warm-accent); }
-        .warm-accent-text { color: var(--warm-accent); }
-        .warm-accent-border { border-color: var(--warm-accent); }
-        .cool-accent-bg { background-color: var(--cool-accent); }
-        .cool-accent-text { color: var(--cool-accent); }
-        .cool-accent-border { border-color: var(--cool-accent); }
-        .subtle-text { color: var(--subtle-text); }
-        .main-text { color: var(--main-text); }
-        .base-bg { background-color: var(--base-bg); }
-        h1, h2, h3 {
-            font-weight: 600;
-        }
+        body { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-slate-100">
 
-    <!-- Header -->
-    <header class="py-6 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold main-text">Laura Clarke Solutions</h1>
-            <nav>
-                <a href="assessment.html" class="warm-accent-bg text-white font-semibold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">Start Assessment</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-
-        <!-- Hero Section -->
-        <section class="text-center mb-16 md:mb-24">
-            <h2 class="text-4xl md:text-5xl font-bold main-text max-w-3xl mx-auto leading-tight">Finally, a clear view of your money and goals.</h2>
-            <p class="mt-4 text-lg subtle-text max-w-2xl mx-auto">Custom dashboards designed for Jamaicans. Stop feeling overwhelmed and start making progress on what matters most, whether you're saving for a car, managing a side hustle, or planning your future.</p>
-        </section>
-
-        <!-- Solutions Showcase -->
-        <section>
-            <h3 class="text-3xl font-bold main-text text-center mb-10">Your Personal Command Centre</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Card 1: Spending & Savings Tracker -->
-                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
-                    <h4 class="text-xl font-semibold main-text mb-2">For when you need to know where every dollar is going.</h4>
-                    <p class="subtle-text text-sm mb-4">Perfect for managing daily expenses, tracking debt repayment, and building your savings without the headache.</p>
-                    <!-- Mini Mockup -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 flex-grow mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-xs font-bold cool-accent-text">Monthly Savings</span>
-                            <span class="text-xs font-bold text-green-600">+ J$15,000</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                            <div class="cool-accent-bg h-2.5 rounded-full" style="width: 65%"></div>
-                        </div>
-                        <div class="flex justify-between text-xs subtle-text">
-                            <span>Income: J$150k</span>
-                            <span>Expenses: J$135k</span>
-                        </div>
-                        <div class="mt-4 border-t pt-3 flex justify-between items-center">
-                             <span class="text-xs font-bold cool-accent-text">Top Expense</span>
-                             <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Groceries</span>
-                        </div>
-                    </div>
-                    <a href="spending-savings-tracker.html" class="text-center w-full warm-accent-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity">View Details & Scenario</a>
-                </div>
-
-                <!-- Card 2: Personal Goal Tracker -->
-                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
-                    <h4 class="text-xl font-semibold main-text mb-2">For when you're saving for something big.</h4>
-                    <p class="subtle-text text-sm mb-4">Whether it's a down payment on a house, a new car, or your children's education fund, see your progress in real-time.</p>
-                    <!-- Mini Mockup -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 flex-grow mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-xs font-bold warm-accent-text">Car Fund Goal</span>
-                            <span class="text-xs font-bold text-gray-700">J$1.2M / J$2.5M</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                            <div class="warm-accent-bg h-2.5 rounded-full" style="width: 48%"></div>
-                        </div>
-                         <div class="flex justify-between text-xs subtle-text">
-                            <span>Target: Dec 2026</span>
-                            <span>48% Complete</span>
-                        </div>
-                        <div class="mt-4 border-t pt-3 flex justify-between items-center">
-                             <span class="text-xs font-bold warm-accent-text">Months Left</span>
-                             <span class="text-lg font-bold main-text">30</span>
-                        </div>
-                    </div>
-                    <a href="personal-goal-tracker.html" class="text-center w-full warm-accent-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity">View Details & Scenario</a>
-                </div>
-
-                <!-- Card 3: Freelancer / WFH Dashboard -->
-                <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col">
-                    <h4 class="text-xl font-semibold main-text mb-2">For when your side hustle becomes your main focus.</h4>
-                    <p class="subtle-text text-sm mb-4">Track multiple income streams, manage client projects, and monitor your business's financial health all in one place.</p>
-                    <!-- Mini Mockup -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 flex-grow mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-xs font-bold cool-accent-text">Quarterly Profit</span>
-                            <span class="text-xs font-bold text-green-600">J$250,000</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                            <div class="cool-accent-bg h-2.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <div class="flex justify-between text-xs subtle-text">
-                            <span>Invoices Paid: 8</span>
-                            <span>Pending: 2</span>
-                        </div>
-                        <div class="mt-4 border-t pt-3 flex justify-between items-center">
-                             <span class="text-xs font-bold cool-accent-text">Active Projects</span>
-                             <span class="text-lg font-bold main-text">4</span>
-                        </div>
-                    </div>
-                    <a href="freelancer-wfh-dashboard.html" class="text-center w-full warm-accent-bg text-white font-semibold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity">View Details & Scenario</a>
-                </div>
-
+    <div class="max-w-2xl mx-auto bg-white shadow-lg">
+        <!-- Header Section -->
+        <div class="p-8 text-center bg-slate-800 text-white">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 border-4 border-cyan-400">
+                <i class="fas fa-passport text-3xl text-slate-800"></i>
             </div>
-        </section>
-
-        <!-- Additional Services -->
-        <section class="mt-16 md:mt-24 text-center">
-             <h3 class="text-3xl font-bold main-text text-center mb-10">Need Something More?</h3>
-             <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                 <div class="bg-white/50 p-8 rounded-xl shadow-sm border border-gray-200">
-                     <h4 class="text-xl font-semibold main-text mb-2">1-on-1 Consultation</h4>
-                     <p class="subtle-text">Let's work together to build a completely custom solution tailored to your unique financial or business needs.</p>
-                 </div>
-                 <div class="bg-white/50 p-8 rounded-xl shadow-sm border border-gray-200">
-                     <h4 class="text-xl font-semibold main-text mb-2">Editorial Services</h4>
-                     <p class="subtle-text">Need help crafting the perfect business plan or proposal? I offer professional writing and editing services.</p>
-                 </div>
-             </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-16 md:mt-24 py-8 border-t cool-accent-border">
-        <div class="container mx-auto text-center subtle-text">
-            <p>&copy; 2024 Laura Clarke Solutions. All Rights Reserved.</p>
-            <p class="text-sm mt-1">Designed to bring clarity to your goals.</p>
+            <h1 class="text-2xl font-bold">Premier Passport & Document Services</h1>
+            <p class="text-cyan-300 mt-1">Your Expert Guide Through Every Step</p>
         </div>
-    </footer>
+
+        <!-- Services -->
+        <div class="p-8">
+            <h2 class="text-3xl font-bold text-slate-800 text-center mb-6">Our Specialized Offerings</h2>
+            <div class="space-y-8">
+                
+                <!-- Service 1: Passport Concierge Service -->
+                <div class="p-6 rounded-lg bg-blue-50 border-l-4 border-blue-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-rocket text-2xl text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Passport Concierge Service</h3>
+                            <p class="text-sm text-slate-600">Our flagship service. We provide a complete, end-to-end solution for your passport application, specializing in the complex cases that the online system can't handle: name changes, lost or stolen passports, and first-time adult applicants.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Essential Document Procurement -->
+                <div class="p-6 rounded-lg bg-green-50 border-l-4 border-green-500">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-certificate text-2xl text-green-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Essential Document Procurement</h3>
+                            <p class="text-sm text-slate-600">The crucial first step. A successful passport application requires perfectly matching documents. We navigate the RGD on your behalf to secure your official Birth Certificate, Marriage Certificate, or Deed Poll, ensuring your application is built on a flawless foundation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
 </body>
 </html>
